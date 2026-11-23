@@ -1,5 +1,14 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
+
+const dbConfig = {
+  server: process.env.DB_SERVER,
+  database: process.env.DB_NAME,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  options: { trustServerCertificate: true },
+}
 
 app.get('/', (req, res) => {
   res.send('Welcome to the Book Category API');
